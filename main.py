@@ -191,7 +191,7 @@ def check_birthday_reminders():
     c.execute("SELECT name, birthday FROM BirthdayData")
     birthdays = c.fetchall()
     for birthday in birthdays:
-        name, bday = birthdayz
+        name, bday = birthday
         bday_date = dt.datetime.strptime(bday, "%Y-%m-%d").date()
         if bday_date.month == today.month and bday_date.day == today.day:
             notification.notify(
@@ -454,7 +454,7 @@ def open_settings_window():
 
         bday_window = Toplevel(settings_window)
         bday_window.title("Set Birthday Reminder")
-        bday_window.geometry("300x200")
+        bday_window.geometry("300x300")
         bday_window.config(bg="black")
 
         bday_name_label = Label(bday_window, text="Name:", font=("Verdana", 12), bg="black", fg="#FF8D55")
